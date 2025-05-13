@@ -14,7 +14,9 @@ module load Subread/2.0.4-GCC-11.3.0 #load module
 
 echo running featureCounts
 
-featureCounts -T 5 -O -C -p -s 2 --countReadPairs -t exon -g gene_id -a /cluster/projects/nn8014k/jenny/3_map_genome_star/ccar_149bp_gtf_index -o rnaseq_map2ccar_featureCounts.txt *_star_map2ccarAligned.sortedByCoord.out.bam
+cd /cluster/work/users/jennlun/4_feature_count/
+
+featureCounts -T 5 -O -C -p -s 2 --countReadPairs -t exon -g gene_id -a /cluster/projects/nn8014k/ccar_latest_annotation/carcar_annotation_v5.gtf -o rnaseq_map2ccar_featureCounts.txt ./BAM_files/*_star_map2ccarAligned.sortedByCoord.out.bam
 
 
 echo finished featureCounts
